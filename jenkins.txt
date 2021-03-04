@@ -1,0 +1,40 @@
+Process to Install Jenkis on AWS Ubuntu 20.04
+
+1.  Install Java with apt command - 
+      java --version
+
+      sudo apt install openjdk-11-jre-headless
+
+      java --version
+                                   
+2.  Install Jenkins via its official repository
+
+    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+    sudo apt update
+ 
+    sudo apt install jenkins
+
+    sudo systemctl status jenkins
+
+    sudo systemctl start jenkins
+
+3.  Configuring the firewall rules for Jenkins
+
+    sudo ufw allow 8080
+
+    sudo ufw status
+    
+    sudo ufw enable
+
+    sudo ufw status
+
+4.  Edit the Inboud Secutiry Rules with IPv4 & IPv6 with ports 8080 and 22
+
+5.  Enter the Public IP with the Port No:22 
+
+6.  Once the Jenkins Page is opened apply the password :sudo cat /var/lib/jenkins/secrets/initialAdminPassword you will get the password 
+
+7.  Install the Pugins
