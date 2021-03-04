@@ -1,0 +1,44 @@
+1.Installing Apache - sudo apt update
+
+2. Adjusting the Firewall - sudo ufw app list
+
+  Output
+  Available applications:
+  Apache
+  Apache Full
+  Apache Secure
+  OpenSSH
+
+3.It is recommended that you enable the most restrictive profile that will still allow the traffic you’ve configured. Since we haven’t configured SSL for our server yet 
+in this guide, we will only need to allow traffic on port 80:- sudo ufw allow 'Apache'
+
+4.Checking your Web Server - sudo systemctl status apache2
+
+5.Managing the Apache Process :
+
+   To stop your web server, type: - sudo systemctl stop apache2
+
+   To start the web server when it is stopped, type: - sudo systemctl start apache2
+
+   To stop and then start the service again, type: - sudo systemctl restart apache2
+
+   If you are simply making configuration changes, Apache can often reload without dropping connections. To do this, use this command: - sudo systemctl reload apache2
+
+   By default, Apache is configured to start automatically when the server boots. If this is not what you want, disable this behavior by typing: 
+- sudo systemctl disable apache2
+
+   To re-enable the service to start up at boot, type: - sudo systemctl enable apache2
+
+6.Setting Up Apache Location
+
+ 
+
+  sudo chown -R $USER:$USER /var/www/html
+
+  sudo chmod -R 755 /var/www/html
+
+ Upload your content to WWWW Location - sudo nano /var/www/your_domain/index.html
+
+
+
+
